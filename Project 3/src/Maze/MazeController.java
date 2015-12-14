@@ -47,7 +47,7 @@ boolean mazeExists = false; // set to true when maze[][] is valid; used in
 
 
 
-public MazeController() {
+protected MazeController() {
 color = new Color[] {
 new Color(200,0,0), //these are the colors that the maze uses Red blue gray and white
 new Color(200,0,0),
@@ -60,7 +60,7 @@ setPreferredSize(new Dimension(blockSize*columns, blockSize*rows));
 new Thread(this).start();//threads courtesy of https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 }
 
-void checkSize() {
+protected void checkSize() {
 // Called before drawing the maze, to set parameters used for drawing.
 if (getWidth() != width || getHeight() != height) {
 width  = getWidth();
@@ -112,7 +112,7 @@ repaint();
 }
 }
 
-void makeMaze() {
+protected void makeMaze() {
 // Create a random maze.  The strategy is to start with
 // a grid of disconnected "rooms" separated by walls.
 // then look at each of the separating walls, in a random
@@ -158,7 +158,7 @@ if (maze[i][j] < 0)
     maze[i][j] = emptyCode;
 }
 
-synchronized void tearDown(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
+protected synchronized void tearDown(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
 // Tear down a wall, unless doing so will form a loop.  Tearing down a wall
 // joins two "rooms" into one "room".  (Rooms begin to look like corridors
 // as they grow.)  When a wall is torn down, the room codes on one side are
@@ -184,7 +184,7 @@ catch (InterruptedException e) { }
 }
 }
 
-void fill(int row, int col, int replace, int replaceWith) {
+protected void fill(int row, int col, int replace, int replaceWith) {
 // called by tearDown() to change "room codes".
 if (maze[row][col] == replace) {
 maze[row][col] = replaceWith;
@@ -195,7 +195,7 @@ fill(row,col-1,replace,replaceWith);
 }
 }
 
-boolean solveMaze(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
+protected boolean solveMaze(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
 // Try to solve the maze by continuing current path from position
 // (row,col).  Return true if a solution is found.  The maze is
 // considered to be solved if the path reaches the lower right cell.

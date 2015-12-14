@@ -9,7 +9,7 @@ public class test
 {
     
     // a main routine makes it possible to run this class as a program
-    public static void main(String[] args) {
+    private static void main(String[] args) {
     	String name;
     	JOptionPane.showMessageDialog(null, "Welcome!");
     	name = JOptionPane.showInputDialog("What is your name?");
