@@ -20,8 +20,9 @@ public class test
         Matcher matcher = pattern.matcher(inputStr);//matches regex pattern with the input string, name
         if(matcher.matches())
         {
-             MazeFrame.frame();//initializes mazeFrame
-             new MazeController();//creates a new maze controller
+            FileIO.Write(name);
+        	MazeFrame.frame();//initializes mazeFrame
+            new MazeController();//creates a new maze controller
         }
         else
         {

@@ -1,6 +1,7 @@
 package Maze;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,26 +15,18 @@ public class FileIO {
 			
 			try {
 				FileWriter fw = new FileWriter("name.txt");
-				PrintWriter pw = new PrintWriter(fw);
+				BufferedWriter bw = new BufferedWriter(fw);
+			
 				
-				pw.print(name);
-				pw.close();
+				bw.write("The last person to watch this maze was:");
+				bw.newLine();
+				bw.write(name);
+				bw.close();
 			}
 			catch (IOException e) {
 				System.out.println("Oh no, I goofed");
 			}
 			
 		}//ends Write
-		protected static void Read() {
-			try {
-				FileReader fr = new FileReader("party.txt");
-				BufferedReader br = new BufferedReader(fr);
-				
-				String str;
-					while ((str = br.readLine()) != null) {
-						JOptionPane.showMessageDialog(null, str + " ..Sorry bud, The party is over.");
-					}
-				} catch(Exception e){};
-		}//end read
 	}
 
