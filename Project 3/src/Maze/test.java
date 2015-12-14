@@ -1,23 +1,33 @@
 package Maze;
 import java.awt.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.*;
 
-/**
- * Creates a random maze, then solves it by finding a path from the
- * upper left corner to the lower right corner.  (After doing
- * one maze, it waits a while then starts over by creating a
- * new random maze.)
- */
-public class test  //Runnable courtesy of https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
+public class test  
 {
     
     // a main routine makes it possible to run this class as a program
     public static void main(String[] args) {
-    	
-        MazeFrame.frame();
-        new MazeController();
-    }
+    	String name;
+    	JOptionPane.showMessageDialog(null, "Welcome!");
+    	name = JOptionPane.showInputDialog("What is your name?");
     
+    	String regex = "^[a-zA-Z]*$";//Regex pattern to make sure the string name only contains letters
+        CharSequence inputStr = name;
+        Pattern pattern = Pattern.compile(regex);//creates a pattern of the regex string
+        Matcher matcher = pattern.matcher(inputStr);//matches regex pattern with the input string, name
+        if(matcher.matches())
+        {
+             MazeFrame.frame();//initializes mazeFrame
+             new MazeController();//creates a new maze controller
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "That is not a name!");
+        }
+    }
 
     
 

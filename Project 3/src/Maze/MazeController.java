@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class MazeController extends JPanel implements Runnable {
+public class MazeController extends JPanel implements Runnable { //Runnable courtesy of //Runnable courtesy of https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 	int[][] maze;   // Description of state of maze.  The value of maze[i][j]
     // is one of the constants wallCode, pathcode, emptyCode,
     // or visitedCode.  (Value can also be negative, temporarily,
@@ -49,7 +49,7 @@ boolean mazeExists = false; // set to true when maze[][] is valid; used in
 
 public MazeController() {
 color = new Color[] {
-new Color(200,0,0),
+new Color(200,0,0), //these are the colors that the maze uses Red blue gray and white
 new Color(200,0,0),
 new Color(128,128,255),
 Color.WHITE,
@@ -57,7 +57,7 @@ new Color(200,200,200)
 };
 setBackground(color[backgroundCode]);
 setPreferredSize(new Dimension(blockSize*columns, blockSize*rows));
-new Thread(this).start();
+new Thread(this).start();//threads courtesy of https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 }
 
 void checkSize() {
