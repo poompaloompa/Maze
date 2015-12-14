@@ -14,17 +14,17 @@ public class FileIO {
 		protected static void Write(String name) {
 			
 			try {
-				FileWriter fw = new FileWriter("name.txt");
-				BufferedWriter bw = new BufferedWriter(fw);
+				FileWriter fw = new FileWriter("name.txt");//grabs the file name.txt
+				BufferedWriter bw = new BufferedWriter(fw);//buffered writer so java can write to the file
 			
 				
-				bw.write("The last person to watch this maze was:");
-				bw.newLine();
-				bw.write(name);
-				bw.close();
+				bw.write("The last person to watch this maze was:");//standard message in the file
+				bw.newLine();//drops down a line
+				bw.write(name);//writes the string variable "name"
+				bw.close();//closes the buffered writer
 			}
 			catch (IOException e) {
-				System.out.println("Oh no, I goofed");
+				System.out.println("Oh no, I goofed");//message that prints if there is an error
 			}
 			
 		}//ends Write

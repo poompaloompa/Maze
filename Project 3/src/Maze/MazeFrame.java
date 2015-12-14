@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 
 public class MazeFrame {
 
-	public static void frame() {
+	public static void frame() {//creates the JFrame board that the Maze Controller uses
 		JFrame window = new JFrame("Maze Solver");
         window.setContentPane(new MazeController());
         window.pack();

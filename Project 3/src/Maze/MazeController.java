@@ -158,7 +158,7 @@ if (maze[i][j] < 0)
     maze[i][j] = emptyCode;
 }
 
-synchronized void tearDown(int row, int col) {
+synchronized void tearDown(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
 // Tear down a wall, unless doing so will form a loop.  Tearing down a wall
 // joins two "rooms" into one "room".  (Rooms begin to look like corridors
 // as they grow.)  When a wall is torn down, the room codes on one side are
@@ -195,7 +195,7 @@ fill(row,col-1,replace,replaceWith);
 }
 }
 
-boolean solveMaze(int row, int col) {
+boolean solveMaze(int row, int col) { //https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
 // Try to solve the maze by continuing current path from position
 // (row,col).  Return true if a solution is found.  The maze is
 // considered to be solved if the path reaches the lower right cell.
