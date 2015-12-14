@@ -3,14 +3,17 @@ package party;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
+import java.lang.reflect.InvocationTargetException;
+
 public class PartyPane {
 	
 	
-protected static double JoeFrame(){
+protected static double JoeFrame() throws InvocationTargetException, InterruptedException {
 	double x = 0;
 	double y = 1.25;
 	double z = 0;
 	JFrame party = new JFrame();
+	SwingUtilities.invokeAndWait((Runnable) new Sound());
 	//party.setLayout(new BorderLayout());
 	party.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	String oh = new String("party");
@@ -33,7 +36,7 @@ protected static double JoeFrame(){
 	title.setHorizontalAlignment(title.CENTER);
 	party.pack();
 	party.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-
+	 
 	while(z < 100){
 	party.getContentPane().setBackground(Color.RED);
     party.setVisible(true);
